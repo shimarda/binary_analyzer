@@ -1,17 +1,22 @@
-use std::process::Command;
+use std::process::{Command, Stdio};
+use std::env;
+use std::io::Read;
 
 fn main() {
-    // let args: Vec<String> = env::args().collect();
+    let args: Vec<String> = env::args().collect();
+
     match std::env::current_dir() {
-        Ok(x) =>
+        Ok(_x) =>
             {
-                let cmd: &str = "ls ";
-                let output = Command::new(cmd)
-                    .current_dir(x)
-                    .output()
+                let output = Command::new("strace")
+                    .args(&args[1..])
+                    .stderr(Stdio::piped())
+                    .spawn()
                     .expect("failed to execute process");
-                let res = output.stdout;
-                println!("{}", std::str::from_utf8(&res).unwrap());
+                let mut stderr = output.stderr.unwrap();
+                let mut buf = String::new();
+                stderr.read_to_string(&mut buf).unwrap();
+                println!("{}", buf);
             },
         Err(err) => {
             eprintln!("{:?}", err);
