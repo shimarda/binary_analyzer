@@ -1,2 +1,4 @@
 /target
 target/\nCargo.lock
+
+./static_analysis/hello*
