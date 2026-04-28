@@ -1,4 +1,7 @@
 /target
 target/\nCargo.lock
 
-./static_analysis/hello*
+!./static_analysis/main.c
+./static_analysis/*
+
+
