@@ -4,4 +4,5 @@ target/\nCargo.lock
 !./static_analysis/main.c
 ./static_analysis/*
 
-
+!./catrace/main.c
+./catrace/*
