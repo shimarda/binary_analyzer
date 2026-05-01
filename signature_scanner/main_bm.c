@@ -91,7 +91,7 @@ int main(int argc, char *argv[]) {
 
   close(fd);
 
-  int pos = bm_search((const unsigned char *)buf, sizeof(buf) / sizeof(char),
+  int pos = bm_search((const unsigned char *)buf, file_size,
                       (const unsigned char *)signature,
                       sizeof(signature) / sizeof(unsigned char));
 
