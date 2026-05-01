@@ -1,8 +1,12 @@
 /target
 target/\nCargo.lock
 
-!./static_analysis/main.c
 ./static_analysis/*
+!./static_analysis/main.c
 
-!./catrace/main.c
 ./catrace/*
+!./catrace/main.c
+
+./signature_scanner/*
+!./signature_scanner/main.c
+
