@@ -10,3 +10,5 @@ target/\nCargo.lock
 ./signature_scanner/*
 !./signature_scanner/main.c
 
+./proc_dump/*
+!./proc_dump/main.c
